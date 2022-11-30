@@ -14,6 +14,10 @@ function createGame(n, obj){
     for (let i = 0; i < n; i++) {
         const cell = createElement('div', 'd-flex text-center cell');
         cell.append(createElement('span', 'm-auto', i + 1));
+        
+        cell.addEventListener('click', function(){
+            cell.classList.toggle('blue');
+        });
 
         obj.append(cell);
     }
@@ -21,8 +25,13 @@ function createGame(n, obj){
 
 const game = document.getElementById('game');
 const gameField = createElement('div', 'd-flex flex-wrap m-auto game-field');
-game.append(gameField);
+const playBtn = document.getElementById('play-btn');
 
-createGame(100, gameField);
+playBtn.addEventListener('click', function(){
+    if(game.children.length === 0){
+        game.append(gameField);
+        createGame(100, gameField);
+    }
+});
 
 
