@@ -13,10 +13,6 @@ function createElement(tagName, className = '', content = ''){
 function createGame(n, obj){
     for (let i = 0; i < n; i++) {
         const cell = createElement('div', 'd-flex text-center cell');
-        let cellWidth = obj.clientWidth / Math.sqrt(n) - cell.style.borderWidth;
-        let cellHeight = obj.clientWidth / Math.sqrt(n) - cell.style.borderWidth;
-        cell.style.width = cellWidth + 'px';
-        cell.style.height = cellHeight + 'px';
         cell.append(createElement('span', 'm-auto', i + 1));
 
         obj.append(cell);
